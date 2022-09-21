@@ -6,7 +6,7 @@ exports.createSauce = (req, res, next) => {
     console.log(req.auth);
     const sauce = new Sauce({
         ...sauceObject,
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
+        imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`   
     });
     sauce.save()
     .then(()=> { res.status(201).json({message: "Objet enregistré !!"})})
@@ -16,7 +16,7 @@ exports.createSauce = (req, res, next) => {
 };
 
 exports.getOneSauce = (req, res, next) => {
-    Sauce.findOne({ _id: req.params.id}) 
+    Sauce.findOne({ _id: req.params.id})
     .then((sauce) => res.status(200).json(sauce))
     .catch((error) => {
         console.log(error)
@@ -26,7 +26,7 @@ exports.getOneSauce = (req, res, next) => {
 
 
 exports.getAllSauce = (req, res, next) => {
- //   console.log("coucou")
+  // console.log("coucou")
     Sauce.find()
     .then((sauces) => res.status(200).json(sauces))
     .catch((error) => {
@@ -70,3 +70,4 @@ exports.deleteSauce = (req, res, next) => {
     })
     .catch((error) => res.status(500).json({ error }));
 };
+
