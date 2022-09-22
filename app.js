@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 // Connexion a la base de données MongoDB
 const mongoose = require("mongoose");
 
-const sauce = require("./models/sauce");
+const sauce = require("./models/sauces");
 
 const userRoutes = require("./routes/user");
 const sauceRoutes = require("./routes/sauces");

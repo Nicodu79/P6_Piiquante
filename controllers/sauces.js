@@ -1,4 +1,4 @@
-const Sauce = require("../models/sauce");
+const Sauce = require("../models/sauces");
 const fs = require("fs");
 
 exports.createSauce = (req, res, next) => {
@@ -17,7 +17,9 @@ exports.createSauce = (req, res, next) => {
 
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id})
-    .then((sauce) => res.status(200).json(sauce))
+    .then((sauce) => {
+        console.log(sauce)
+        res.status(200).json(sauce)})
     .catch((error) => {
         console.log(error)
         res.status(404).json({ error })
